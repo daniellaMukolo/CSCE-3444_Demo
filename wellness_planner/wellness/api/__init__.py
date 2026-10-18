@@ -15,7 +15,7 @@ HOW IT CONNECTS
 from flask import Blueprint, jsonify, request
 from werkzeug.exceptions import HTTPException
 
-from . import auth, days, progress
+from . import auth, days, progress, compare
 # Teammates: import your API module here too (schedule, compare), and add it to the tuple below.
 
 api = Blueprint("api", __name__, url_prefix="/api")
@@ -31,7 +31,7 @@ def require_json_for_changes():
 
 
 # Put each feature's routes under /api (e.g. days.bp has url_prefix "/days" -> /api/days).
-for module in (auth, days, progress):
+for module in (auth, days, progress, compare):
     api.register_blueprint(module.bp)
 
 
