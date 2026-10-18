@@ -1,0 +1,16 @@
+# Installed packages, build output, local data (each folder also has its own .gitignore)
+node_modules/
+dist/
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+wellness_planner/instance/
+
+# Replit upload copies (rebuilt by make_replit_zip.py)
+wellness_replit/
+wellness_replit.zip
+
+# Local tools and backups
+.claude/
+snapshots/
