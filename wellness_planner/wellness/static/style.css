@@ -1,0 +1,53 @@
+/* Calm color theme on top of Bootstrap (loaded in templates/base.html).
+   Bootstrap handles layout and responsiveness; this file only sets our colors and a few classes. */
+:root {
+  --wellness-teal: #2f6f73;
+  --wellness-teal-dark: #24575a;
+  --wellness-bg: #f4f8f7;
+}
+
+body {
+  background: var(--wellness-bg);
+}
+
+.bg-wellness {
+  background: var(--wellness-teal);
+}
+
+/* Recolor Bootstrap's primary buttons through its CSS variables. */
+.btn-primary {
+  --bs-btn-bg: var(--wellness-teal);
+  --bs-btn-border-color: var(--wellness-teal);
+  --bs-btn-hover-bg: var(--wellness-teal-dark);
+  --bs-btn-hover-border-color: var(--wellness-teal-dark);
+  --bs-btn-active-bg: var(--wellness-teal-dark);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--wellness-teal);
+  --bs-btn-border-color: var(--wellness-teal);
+  --bs-btn-hover-bg: var(--wellness-teal);
+  --bs-btn-hover-border-color: var(--wellness-teal);
+  --bs-btn-active-bg: var(--wellness-teal);
+}
+
+/* Dashboard tiles */
+.tracker-tile {
+  transition: box-shadow 0.15s;
+}
+
+a.tracker-tile:hover,
+a.tracker-tile:focus {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
+}
+
+/* Narrow cards on login, sign-up and profile */
+.auth-card {
+  max-width: 28rem;
+}
+
+/* Chart size on My Progress */
+.chart-box {
+  position: relative;
+  height: 14rem;
+}

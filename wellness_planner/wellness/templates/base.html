@@ -1,0 +1,50 @@
+{#- Shared layout for every page: Bootstrap, nav bar, flash messages.
+    Pages extend this and fill the title, content and (optionally) scripts blocks. -#}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %} · Student Wellness Planner</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+  <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-wellness">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('main.index') }}">Student Wellness Planner</a>
+      {% if g.user %}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="main-nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('main.dashboard') }}">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('progress.index') }}">My Progress</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('main.profile') }}">Profile</a></li>
+            <li class="nav-item">
+              {# Log out is a POST form so other sites can't trigger it with a link #}
+              <form method="post" action="{{ url_for('auth.logout') }}">
+                <button class="nav-link btn btn-link" type="submit">Log out</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  </nav>
+
+  <main id="main" class="container py-4">
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+      <div class="alert alert-{{ 'info' if category == 'message' else category }}" role="status">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

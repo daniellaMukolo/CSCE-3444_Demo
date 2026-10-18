@@ -1,0 +1,33 @@
+{# Shared form helpers. Use these so every page shows errors the same way
+   (NFR 6.3: error message next to the field, saying what is wrong and how to fix it).
+   Import with: {% from "_macros.html" import field, select %} #}
+
+{# A labeled input. Extra keyword arguments (required=True, max=...) become HTML attributes. #}
+{% macro field(name, label, value="", error=None, type="text", help=None) -%}
+<div class="mb-3">
+  <label for="{{ name }}" class="form-label">{{ label }}</label>
+  <input id="{{ name }}" name="{{ name }}" type="{{ type }}"
+         class="form-control{% if error %} is-invalid{% endif %}"
+         {%- if type != "password" %} value="{{ value or '' }}"{% endif %}
+         {%- if error %} aria-invalid="true" aria-describedby="{{ name }}-error"
+         {%- elif help %} aria-describedby="{{ name }}-help"{% endif %}
+         {{ kwargs|xmlattr }}>
+  {% if help %}<div id="{{ name }}-help" class="form-text">{{ help }}</div>{% endif %}
+  {% if error %}<div id="{{ name }}-error" class="invalid-feedback">{{ error }}</div>{% endif %}
+</div>
+{%- endmacro %}
+
+{# A labeled dropdown; the option matching value is pre-selected. #}
+{% macro select(name, label, options, value="", error=None, placeholder="Choose...") -%}
+<div class="mb-3">
+  <label for="{{ name }}" class="form-label">{{ label }}</label>
+  <select id="{{ name }}" name="{{ name }}" class="form-select{% if error %} is-invalid{% endif %}"
+          {%- if error %} aria-invalid="true" aria-describedby="{{ name }}-error"{% endif %}>
+    <option value="">{{ placeholder }}</option>
+    {% for option in options %}
+      <option value="{{ option }}"{% if option|string == value|string %} selected{% endif %}>{{ option }}</option>
+    {% endfor %}
+  </select>
+  {% if error %}<div id="{{ name }}-error" class="invalid-feedback">{{ error }}</div>{% endif %}
+</div>
+{%- endmacro %}
