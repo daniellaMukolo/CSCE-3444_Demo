@@ -1,0 +1,29 @@
+{# Sign-up page (UC-01 part A). Rendered by auth.register(). #}
+{% extends "base.html" %}
+{% from "_macros.html" import field, select %}
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+<div class="card auth-card mx-auto shadow-sm">
+  <div class="card-body p-4">
+    <h1 class="h3 text-center mb-4">Create Your Account</h1>
+    {% if email_taken %}
+      <div class="alert alert-warning" role="alert">
+        That email already has an account. <a href="{{ url_for('auth.login') }}">Log in instead</a>.
+      </div>
+    {% endif %}
+    <form method="post" novalidate>
+      {{ field("name", "Name", form.name, errors.name, autocomplete="name", required=True) }}
+      {{ field("email", "Email", form.email, errors.email, type="email", autocomplete="email", required=True) }}
+      {{ field("password", "Password", error=errors.password, type="password", help="At least 8 characters.",
+               autocomplete="new-password", required=True) }}
+      {{ field("confirm", "Confirm password", error=errors.confirm, type="password",
+               autocomplete="new-password", required=True) }}
+      {{ select("year", "Year in school", years, form.year, errors.year) }}
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary flex-grow-1" type="submit">Create Account</button>
+        <a class="btn btn-outline-secondary" href="{{ url_for('auth.login') }}">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

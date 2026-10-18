@@ -1,0 +1,17 @@
+{# Profile page: edit name and year in school (UC-01 part C). Rendered by main.profile(). #}
+{% extends "base.html" %}
+{% from "_macros.html" import field, select %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="card auth-card shadow-sm">
+  <div class="card-body p-4">
+    <h1 class="h3 mb-4">Profile</h1>
+    <p class="text-body-secondary">Email: {{ g.user.email }}</p>
+    <form method="post" novalidate>
+      {{ field("name", "Name", values.name, errors.name, autocomplete="name", required=True) }}
+      {{ select("year", "Year in school", years, values.year, errors.year) }}
+      <button class="btn btn-primary" type="submit">Save</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

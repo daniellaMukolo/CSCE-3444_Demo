@@ -1,0 +1,18 @@
+{# Login page (UC-01 part B). Rendered by auth.login(). #}
+{% extends "base.html" %}
+{% from "_macros.html" import field %}
+{% block title %}Log In{% endblock %}
+{% block content %}
+<div class="card auth-card mx-auto shadow-sm">
+  <div class="card-body p-4">
+    <h1 class="h3 text-center mb-4">Welcome Back!</h1>
+    {% if error %}<div class="alert alert-danger" role="alert">{{ error }}</div>{% endif %}
+    <form method="post" novalidate>
+      {{ field("email", "Email", email, type="email", autocomplete="email", required=True) }}
+      {{ field("password", "Password", type="password", autocomplete="current-password", required=True) }}
+      <button class="btn btn-primary w-100" type="submit">Log In</button>
+    </form>
+    <p class="text-center mt-3 mb-0">Don't have an account? <a href="{{ url_for('auth.register') }}">Sign Up</a></p>
+  </div>
+</div>
+{% endblock %}
