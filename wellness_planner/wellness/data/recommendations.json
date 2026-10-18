@@ -1,0 +1,60 @@
+{
+  "_note": "Recommendation Library (NFR 6.5), read by progress.py. category matches a key in CATEGORY_QUERIES. A tip is shown when the student's score for its category is >= min and < max. Lower priority numbers show first. TEAM: check every source and threshold against the published guideline before the demo.",
+  "recommendations": [
+    {
+      "id": "sleep-short",
+      "category": "sleep",
+      "min": 0,
+      "max": 7,
+      "priority": 1,
+      "title": "Aim for at least 7 hours of sleep",
+      "summary": "Your average is under 7 hours a night. Most adults need 7 or more.",
+      "details": "Sleep experts recommend that adults sleep 7 or more hours per night on a regular basis. Try keeping the same bedtime and wake time each day, including weekends, and putting screens away before bed.",
+      "source": "Watson et al., \"Recommended Amount of Sleep for a Healthy Adult,\" American Academy of Sleep Medicine and Sleep Research Society consensus statement, 2015"
+    },
+    {
+      "id": "stress-high",
+      "category": "stress",
+      "min": 3.5,
+      "max": 6,
+      "priority": 2,
+      "title": "Build short breaks into your day",
+      "summary": "Your stress level has been high on average.",
+      "details": "Short breaks, physical activity, enough sleep, and talking with people you trust can all help manage stress. If stress feels hard to manage, campus counseling services can help.",
+      "source": "American Psychological Association, Stress topic resources (apa.org/topics/stress)"
+    },
+    {
+      "id": "exercise-low",
+      "category": "exercise",
+      "min": 0,
+      "max": 150,
+      "priority": 3,
+      "title": "Work toward 150 active minutes a week",
+      "summary": "You logged fewer than 150 minutes of activity per week.",
+      "details": "Adults should aim for at least 150 minutes of moderate-intensity activity each week. Short walks between classes count, and splitting activity into 10 to 30 minute blocks makes it easier to fit into a busy schedule.",
+      "source": "U.S. Department of Health and Human Services, Physical Activity Guidelines for Americans, 2nd edition, 2018"
+    },
+    {
+      "id": "food-low",
+      "category": "food",
+      "min": 0,
+      "max": 2,
+      "priority": 4,
+      "title": "Add fruits and vegetables to more meals",
+      "summary": "Your average meal score is below 2 out of 3.",
+      "details": "A balanced plate is about half fruits and vegetables, with the rest split between grains and protein. Adding one fruit or vegetable to each meal is an easy place to start.",
+      "source": "U.S. Department of Agriculture, MyPlate (myplate.gov)"
+    },
+    {
+      "id": "screen-high",
+      "category": "screen",
+      "min": 6,
+      "max": 25,
+      "priority": 5,
+      "title": "Give your eyes regular screen breaks",
+      "summary": "You average more than 6 hours of screen time a day (team-chosen threshold).",
+      "details": "Try the 20-20-20 rule: every 20 minutes, look at something about 20 feet away for 20 seconds. Setting a screen-free hour before bed can also help your sleep.",
+      "source": "American Optometric Association, Computer Vision Syndrome guidance (aoa.org)"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{# One tip in full, with its source (UC-03 steps 7-8). Rendered by progress.recommendation(). #}
+{% extends "base.html" %}
+{% block title %}{{ rec.title }}{% endblock %}
+{% block content %}
+<div class="card shadow-sm" style="max-width: 40rem">
+  <div class="card-body">
+    <h1 class="h4">{{ rec.title }}</h1>
+    <p>{{ rec.details }}</p>
+    <p class="small"><strong>Source:</strong> {{ rec.source }}</p>
+    <p class="small text-body-secondary">This is general wellness information, not medical advice.</p>
+    <a class="btn btn-outline-primary" href="{{ url_for('progress.index') }}">Back to My Progress</a>
+  </div>
+</div>
+{% endblock %}
