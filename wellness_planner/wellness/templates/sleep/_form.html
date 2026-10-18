@@ -1,0 +1,33 @@
+{# Sleep form shared by sleep/index.html and sleep/edit.html (UC-02).
+   Expects: values, errors, prompt (None, "long" or "replace"), today; optional cancel_url.
+   When sleep.py asks for confirmation, a hidden confirm_* field carries the answer back. #}
+{% from "_macros.html" import field, select %}
+
+{% if prompt == "long" %}
+  <div class="alert alert-warning" role="alert">
+    That's <strong>{{ values.total_hours }} hours</strong> of sleep. Are those times right?
+    Select <em>Yes, save it</em> to keep them, or change the times below.
+  </div>
+{% elif prompt == "replace" %}
+  <div class="alert alert-warning" role="alert">
+    You already have a sleep entry for {{ values.entry_date }}.
+    Select <em>Yes, save it</em> to replace it.
+  </div>
+{% endif %}
+
+<form method="post" novalidate>
+  {{ field("entry_date", "Date (the morning you woke up)", values.entry_date, errors.entry_date,
+           type="date", max=today, required=True) }}
+  <div class="row">
+    <div class="col-sm-6">{{ field("bedtime", "Bedtime", values.bedtime, errors.bedtime, type="time", required=True) }}</div>
+    <div class="col-sm-6">{{ field("wake_time", "Wake time", values.wake_time, errors.wake_time, type="time", required=True) }}</div>
+  </div>
+  {{ select("quality", "Sleep quality (optional)", [1, 2, 3, 4, 5], values.quality, errors.quality,
+            placeholder="No rating  (1 = poor, 5 = excellent)") }}
+
+  {% if prompt == "long" or request.form.confirm_long %}<input type="hidden" name="confirm_long" value="1">{% endif %}
+  {% if prompt == "replace" or request.form.confirm_replace %}<input type="hidden" name="confirm_replace" value="1">{% endif %}
+
+  <button class="btn btn-primary" type="submit">{{ "Yes, save it" if prompt else "Save" }}</button>
+  {% if cancel_url %}<a class="btn btn-outline-secondary" href="{{ cancel_url }}">Cancel</a>{% endif %}
+</form>

@@ -1,0 +1,50 @@
+{# Sleep page: log form plus the last 30 entries (UC-02). Rendered by sleep.index(). #}
+{% extends "base.html" %}
+{% block title %}Sleep{% endblock %}
+{% block content %}
+<h1 class="h3 mb-4">Sleep</h1>
+<div class="row g-4">
+  <div class="col-lg-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="h5 mb-3">Log your sleep</h2>
+        {% include "sleep/_form.html" %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-7">
+    <h2 class="h5 mb-3">Sleep history</h2>
+    {% if history %}
+      <div class="table-responsive">
+        <table class="table table-sm align-middle bg-white">
+          <thead>
+            <tr><th scope="col">Date</th><th scope="col">Bedtime</th><th scope="col">Wake</th>
+                <th scope="col">Hours</th><th scope="col">Quality</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
+          </thead>
+          <tbody>
+            {% for entry in history %}
+              <tr>
+                <td>{{ entry.entry_date }}</td>
+                <td>{{ entry.bedtime }}</td>
+                <td>{{ entry.wake_time }}</td>
+                <td>{{ entry.total_hours }}</td>
+                <td>{{ entry.quality or "–" }}</td>
+                <td class="text-end text-nowrap">
+                  <a class="btn btn-sm btn-outline-primary" href="{{ url_for('sleep.edit', entry_id=entry.id) }}">Edit</a>
+                  <form class="d-inline" method="post" action="{{ url_for('sleep.delete', entry_id=entry.id) }}"
+                        onsubmit="return confirm('Delete the sleep entry for {{ entry.entry_date }}?');">
+                    <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="text-body-secondary">No sleep entries yet. Your saved entries will show up here.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

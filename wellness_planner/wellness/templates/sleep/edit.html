@@ -1,0 +1,12 @@
+{# Edit one sleep entry (UC-02 1a). Rendered by sleep.edit(). #}
+{% extends "base.html" %}
+{% block title %}Edit Sleep Entry{% endblock %}
+{% block content %}
+<div class="card shadow-sm" style="max-width: 32rem">
+  <div class="card-body">
+    <h1 class="h4 mb-3">Edit sleep entry for {{ entry.entry_date }}</h1>
+    {% set cancel_url = url_for('sleep.index') %}
+    {% include "sleep/_form.html" %}
+  </div>
+</div>
+{% endblock %}
