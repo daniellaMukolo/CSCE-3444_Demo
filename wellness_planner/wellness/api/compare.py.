@@ -1,0 +1,114 @@
+Compare Routines API - FR-09 / UC-09 (Daniella).
+
+Compares wellness information from two date ranges.
+"""
+
+from datetime import timedelta
+
+from flask import Blueprint, g, jsonify, request
+
+from ..db import get_db
+from .helpers import api_login_required, parse_day
+
+bp = Blueprint("api_compare", __name__, url_prefix="/api/compare")
+
+
+def routine_summary(user_id, start, end):
+"""Get the average wellness information for a date range."""
+
+db = get_db()
+
+def average(table, column):
+row = db.execute(
+f"""
+SELECT AVG({column}) AS result
+FROM {table}
+WHERE user_id = ?
+AND entry_date BETWEEN ? AND ?
+""",
+(user_id, start, end),
+).fetchone()
+
+return round(row["result"], 2) if row["result"] is not None else None
+
+def total(table, column):
+row = db.execute(
+f"""
+SELECT SUM({column}) AS result
+FROM {table}
+WHERE user_id = ?
+AND entry_date BETWEEN ? AND ?
+""",
+(user_id, start, end),
+).fetchone()
+
+return row["result"] if row["result"] is not None else None
+
+return {
+"sleep_hours": average("sleep_entries", "total_hours"),
+"stress_level": average("stress_checkins", "stress_level"),
+"exercise_minutes": total("exercise_entries", "duration_minutes"),
+"food_score": average("food_entries", "meal_score"),
+"screen_time_hours": average("screen_time_entries", "hours"),
+}
+
+
+@bp.get("")
+@api_login_required
+def compare_routines():
+"""Compare two saved routine periods."""
+
+start1, error1 = parse_day(request.args.get("start1"))
+end1, error2 = parse_day(request.args.get("end1"))
+start2, error3 = parse_day(request.args.get("start2"))
+end2, error4 = parse_day(request.args.get("end2"))
+
+if error1 or error2 or error3 or error4:
+return jsonify(error="Please enter valid dates."), 400
+
+if start1 > end1 or start2 > end2:
+return jsonify(error="Start date must be before end date."), 400
+
+if (end1 - start1) != (end2 - start2):
+return jsonify(error="Please select two periods of the same length."), 400
+
+if (end1 - start1) > timedelta(days=29):
+return jsonify(error="Choose a period of 30 days or less."), 400
+
+first = routine_summary(
+g.user["id"], start1.isoformat(), end1.isoformat()
+)
+
+second = routine_summary(
+g.user["id"], start2.isoformat(), end2.isoformat()
+)
+
+if all(value is None for value in first.values()):
+return jsonify(error="Not enough information for the first routine."), 400
+
+if all(value is None for value in second.values()):
+return jsonify(error="Not enough information for the second routine."), 400
+
+differences = {}
+
+for category in first:
+if first[category] is not None and second[category] is not None:
+differences[category] = round(
+second[category] - first[category], 2
+)
+else:
+differences[category] = None
+
+return jsonify({
+"routine_1": {
+"start": start1.isoformat(),
+"end": end1.isoformat(),
+"results": first,
+},
+"routine_2": {
+"start": start2.isoformat(),
+"end": end2.isoformat(),
+"results": second,
+},
+"differences": differences,
+})
