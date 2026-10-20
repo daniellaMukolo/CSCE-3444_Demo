@@ -1,4 +1,4 @@
-// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Daniella Mukolo.
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Daniella Mukolo.
 
     """Exercise section (FR-07 / UC-07) - Daniella.
 
