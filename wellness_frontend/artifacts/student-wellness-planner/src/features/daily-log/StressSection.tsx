@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) from Malika Ray's Replit AI prototype, and reviewed by Malika Ray.
 // =============================================================================
 // Stress check-in section (FR-05 / UC-05) - Malika
 // =============================================================================

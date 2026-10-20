@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) from Malika Ray's Replit AI prototype, and reviewed by Malika Ray.
 // =============================================================================
 // Step-by-step food picker (FR-06 / UC-06) - Malika
 // =============================================================================

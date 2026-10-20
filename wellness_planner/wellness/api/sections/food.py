@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) from Malika Ray's Replit AI prototype, and reviewed by Malika Ray.
 """Food section (FR-06 / UC-06) - Malika.
 
 WHAT THIS FILE DOES

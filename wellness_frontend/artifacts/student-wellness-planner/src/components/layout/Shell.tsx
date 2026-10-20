@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) from Malika Ray's Replit AI prototype, and reviewed by Malika Ray.
 // =============================================================================
 // App frame: sidebar, top bar, phone navigation - Malika (design)
 // =============================================================================

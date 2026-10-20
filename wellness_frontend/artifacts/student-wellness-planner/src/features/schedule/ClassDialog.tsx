@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) from Malika Ray's Replit AI prototype, and reviewed by Malika Ray.
 // =============================================================================
 // Add/edit schedule item pop-up (FR-04 / UC-04) - Malika
 // =============================================================================

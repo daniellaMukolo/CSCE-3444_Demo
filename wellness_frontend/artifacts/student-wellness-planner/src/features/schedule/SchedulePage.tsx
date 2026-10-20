@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) from Malika Ray's Replit AI prototype, and reviewed by Malika Ray.
 // =============================================================================
 // "My week" page (FR-04 / UC-04) - Malika
 // =============================================================================
