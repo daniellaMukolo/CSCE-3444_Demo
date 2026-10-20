@@ -23,15 +23,17 @@ from flask import Blueprint, g, jsonify, request
 
 from ..db import get_db
 from .helpers import api_login_required, parse_day
-from .sections import notes, sleep
+from .sections import exercise, food, notes, screen_time, sleep, stress
 
 bp = Blueprint("api_days", __name__, url_prefix="/days")
 
 # JSON key -> section module. The front end uses the same keys.
-# Teammates: add your section here when your module is ready (see docs/INTEGRATION.md, section 4):
-#   "stress": stress, "exercise": exercise, "food": food, "screenTime": screen_time
 SECTIONS = {
     "sleep": sleep,
+    "stress": stress,
+    "exercise": exercise,
+    "food": food,
+    "screenTime": screen_time,
     "note": notes,
 }
 
@@ -42,8 +44,7 @@ def load_day(db, user_id, day):
     result = {key: module.load(db, user_id, day) for key, module in SECTIONS.items()}
     # The day counts as saved if any section has something (None and [] mean "nothing").
     saved = any(value not in (None, []) for value in result.values())
-    # supportMessage comes from the stress section (needs_support) once it's added.
-    result.update(date=day, saved=saved, supportMessage=False)
+    result.update(date=day, saved=saved, supportMessage=stress.needs_support(db, user_id, day))
     return result
 
 
@@ -51,9 +52,9 @@ def load_day(db, user_id, day):
 @api_login_required
 def options():
     """The choice lists the Daily log form needs, kept on the server so there is one source."""
-    # Teammates: add your section's choice lists here (activity types, meal types and
-    # the food catalog, stress questions) so the form reads them from one place.
-    return jsonify(longSleepHours=sleep.LONG_SLEEP_HOURS)
+    return jsonify(activityTypes=exercise.ACTIVITY_TYPES, mealTypes=food.MEAL_TYPES,
+                   foodCatalog=food.load_catalog(), stressQuestions=stress.QUESTIONS,
+                   longSleepHours=sleep.LONG_SLEEP_HOURS)
 
 
 # The sections that count toward a "complete" day on the dashboard (the reflection is optional).
