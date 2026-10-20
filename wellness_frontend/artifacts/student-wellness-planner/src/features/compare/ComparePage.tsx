@@ -1,4 +1,4 @@
-# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Daniella Mukolo.
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Daniella Mukolo.
     
 
 // =============================================================================
