@@ -1,7 +1,5 @@
-// DRAFT FOR DANIELLA: a temporary working draft written with Claude AI so that every
-// planned feature of the app could be run and tested together. This section is Daniella's
-// to design and write. She can keep, change or replace any part of it, or none of it.
-// Every part is explained in the comments below, so pieces are easy to reuse or rewrite.
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Daniella Mukolo.
+    
 
 // =============================================================================
 // Screen time section of the daily check-in (FR-08 / UC-08) - Daniella
