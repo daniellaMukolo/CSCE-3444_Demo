@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Demo data command - Bobby (shared; covers every section).
 
 WHAT THIS FILE DOES

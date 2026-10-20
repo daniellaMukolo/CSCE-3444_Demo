@@ -1,3 +1,4 @@
+-- AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 -- Student Wellness Planner database schema - shared (each table is marked with its owner).
 -- WHAT THIS FILE DOES: defines every table for the whole team.
 -- HOW IT CONNECTS: db.py runs it for `flask --app wellness init-db` (deletes all data);

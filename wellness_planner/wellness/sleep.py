@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Sleep tracking (FR-02 / UC-02) - Bobby.
 
 WHAT THIS FILE DOES

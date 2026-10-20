@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // "Your patterns" page (FR-03 / UC-03) - Bobby
 // =============================================================================

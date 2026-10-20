@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // One saved day in the list - Shared
 // =============================================================================

@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Tests for accounts (auth.py, UC-01) and the NFR 6.2 security rules - Bobby."""
 from wellness.db import get_db
 

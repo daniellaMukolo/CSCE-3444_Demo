@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Builds wellness_replit.zip for uploading to Replit (see REPLIT_SETUP.md).
 
 Run from this folder after code changes: python make_replit_zip.py

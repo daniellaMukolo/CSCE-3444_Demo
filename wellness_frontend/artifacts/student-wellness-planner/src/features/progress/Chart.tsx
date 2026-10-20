@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // Bar chart for one category - Bobby
 // =============================================================================

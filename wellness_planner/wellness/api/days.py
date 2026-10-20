@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Daily check-ins API - shared (integration by Bobby; each section module is its owner's).
 
 WHAT THIS FILE DOES

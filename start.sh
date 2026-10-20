@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 # Starts the whole app on Replit (the Run button calls this; see .replit).
 # 1. Flask backend on port 5000 (private)  2. React front end on port 5173 (the page you see).
 # The first run installs packages and creates the demo data, so it takes a few minutes.

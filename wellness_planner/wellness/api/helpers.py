@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Small helpers shared by the API modules - Bobby (integration).
 
 WHAT THIS FILE DOES

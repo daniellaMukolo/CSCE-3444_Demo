@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Tests for the JSON API used by the React front end (wellness/api/) - shared: each teammate adds tests for their own section.
 
 Run all tests from wellness_planner/ with: python -m pytest

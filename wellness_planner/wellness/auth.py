@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Accounts (FR-01 / UC-01) - Bobby.
 
 WHAT THIS FILE DOES

@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Tests for My Progress (progress.py, UC-03) - Bobby."""
 from wellness.seed import DEMO_EMAIL, DEMO_PASSWORD, seed_demo
 

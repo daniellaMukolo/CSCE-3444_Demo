@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // Progress (FR-03, Bobby) and Compare Routines (FR-09, Daniella) requests
 // =============================================================================

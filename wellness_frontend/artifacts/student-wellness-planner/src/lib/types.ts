@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // Data shapes from the server - Shared (each teammate keeps their section's shapes)
 // =============================================================================

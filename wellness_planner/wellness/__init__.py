@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Student Wellness Planner backend: the application factory - Bobby (integration).
 
 WHAT THIS FILE DOES

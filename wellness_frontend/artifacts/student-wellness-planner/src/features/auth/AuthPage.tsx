@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // Login and sign-up screen (FR-01 / UC-01) - Bobby
 // =============================================================================

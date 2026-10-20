@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // Error message under a form field (NFR 6.3) - Shared (integration: Bobby)
 // =============================================================================

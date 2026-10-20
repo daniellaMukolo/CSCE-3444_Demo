@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Shared pytest fixtures: a fresh app and database per test, a client, and a logged-in client."""
 import pytest
 

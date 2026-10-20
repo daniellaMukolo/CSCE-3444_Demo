@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Reflection section ("Anything else?") - shared, maintained by Bobby.
 
 WHAT THIS FILE DOES

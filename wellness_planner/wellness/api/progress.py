@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """My Progress API (FR-03 / UC-03) - Bobby.
 
 WHAT THIS FILE DOES

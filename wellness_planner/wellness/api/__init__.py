@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """JSON API package - Bobby (integration).
 
 WHAT THIS FILE DOES

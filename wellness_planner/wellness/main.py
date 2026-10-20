@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Original HTML dashboard and profile pages (FR-01 profile basics) - Bobby.
 
 WHAT THIS FILE DOES

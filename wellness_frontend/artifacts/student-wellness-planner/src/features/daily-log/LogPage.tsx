@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // Daily log page - Shared (integration: Bobby; each section is its owner's)
 // =============================================================================

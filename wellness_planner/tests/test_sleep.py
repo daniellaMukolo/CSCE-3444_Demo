@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Tests for sleep tracking (sleep.py, UC-02) - Bobby."""
 from datetime import date, timedelta
 

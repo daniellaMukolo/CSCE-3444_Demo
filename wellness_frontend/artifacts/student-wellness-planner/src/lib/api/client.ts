@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // The one place that talks to the server - Shared (integration: Bobby)
 // =============================================================================

@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Database connection - Bobby (shared by every feature).
 
 WHAT THIS FILE DOES

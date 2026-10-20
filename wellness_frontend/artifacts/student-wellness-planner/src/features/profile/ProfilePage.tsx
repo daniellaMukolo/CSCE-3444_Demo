@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // Profile page (FR-01 / UC-01 part C) - Bobby
 // =============================================================================

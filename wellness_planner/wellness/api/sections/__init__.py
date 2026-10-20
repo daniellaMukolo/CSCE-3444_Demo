@@ -1,3 +1,4 @@
+# AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 """Daily check-in sections - shared pattern (each module is owned by its section's teammate).
 
 WHAT THIS FOLDER IS

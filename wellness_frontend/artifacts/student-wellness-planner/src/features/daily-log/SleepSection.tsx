@@ -1,3 +1,4 @@
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Bobby Hughes.
 // =============================================================================
 // Sleep section of the daily check-in (FR-02 / UC-02) - Bobby
 // =============================================================================
