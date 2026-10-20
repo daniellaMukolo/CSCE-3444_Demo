@@ -14,3 +14,6 @@ wellness_replit.zip
 # Local tools and backups
 .claude/
 snapshots/
+
+# Files prepared for teammates (shared outside GitHub)
+Team file handoff/

@@ -1,0 +1,37 @@
+# Replit settings for the Student Wellness Planner.
+# Pressing Run starts start.sh (Flask backend + React front end). Do NOT deploy/publish.
+modules = ["nodejs-22", "python-3.12"]
+run = "bash start.sh"
+
+[nix]
+channel = "stable-24_05"
+
+# The Run button starts the "Start application" workflow; the preview opens once port 5173 is ready.
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "bash start.sh"
+waitForPort = 5173
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+# The front end (Vite) is the page people open; it forwards /api to Flask on port 5000.
+[[ports]]
+localPort = 5173
+externalPort = 80

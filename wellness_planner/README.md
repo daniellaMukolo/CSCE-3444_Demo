@@ -2,9 +2,11 @@
 
 Flask + SQLite. This is the server for the app: accounts and security (FR-01, NFR 6.2), the database,
 and a JSON API under `/api` that the React front end in `../wellness_frontend` uses.
-The original Bootstrap pages (`/auth/login`, `/sleep`, `/progress`) work on their own; the React app will be the main interface.
+The original Bootstrap pages (`/auth/login`, `/sleep`, `/progress`) still work but the React app is the main interface.
 
-## Running the backend
+## Running the whole app (two terminals)
+
+**Terminal 1 — the backend (this folder):**
 
 ```bash
 python -m venv .venv
@@ -15,12 +17,13 @@ flask --app wellness seed-demo   # demo student with 14 days of sample data
 flask --app wellness run --debug # serves the API on http://127.0.0.1:5000
 ```
 
-Then open http://127.0.0.1:5000 for the original pages. The React front end is added in a later step.
+**Terminal 2 — the front end:** see `../wellness_frontend/replit.md` ("Run & Operate").
+Then open http://localhost:5173. Vite forwards every `/api` request to Flask.
 
 Demo login: `alexa@my.unt.edu` / `wellness123` (set in `wellness/seed.py`; local test data only).
 Re-run `seed-demo` right before recording to reset the demo account.
 
-Run the tests with `python -m pytest`.
+Run the tests with `python -m pytest` (39 tests: the original pages plus every API route).
 
 The whole-project overview is in the [top-level README](../README.md); how each feature plugs in
 is in [docs/INTEGRATION.md](../docs/INTEGRATION.md).
@@ -38,17 +41,17 @@ wellness/
   progress.py        summarize() + recommendations (also used by the API)
   data/
     recommendations.json   Recommendation Library (edit without touching code)
-    food_catalog.json      cuisines, dishes, ingredients, food groups (added with the food section)
+    food_catalog.json      cuisines, dishes, ingredients, food groups and points, portions
   api/
     __init__.py      registers every API blueprint; requires JSON for changes
     helpers.py       api_login_required, parse_day, user_json
     auth.py          /api/auth: register, login, logout, me, profile
     days.py          /api/days: load, save and delete a whole day (runs every section below)
     sections/        one module per check-in section, each with load/validate/save/delete:
-      sleep.py  notes.py           (added next by teammates: stress.py  exercise.py  food.py  screen_time.py)
-    schedule.py      /api/schedule: list, add, edit, delete, overlap warning (Malika, next)
+      sleep.py  stress.py  exercise.py  food.py  screen_time.py  notes.py
+    schedule.py      /api/schedule: list, add, edit, delete, overlap warning
     progress.py      /api/progress: 7/30-day summary and tips
-    compare.py       /api/compare: Compare Routines (two date ranges) (Daniella, next)
+    compare.py       /api/compare: Compare Routines (two date ranges)
 tests/
 ```
 
