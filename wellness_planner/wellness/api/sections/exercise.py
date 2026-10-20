@@ -1,8 +1,3 @@
-# DRAFT FOR DANIELLA: a temporary working draft written with Claude AI so that every
-# planned feature of the app could be run and tested together. This section is Daniella's
-# to design and write. She can keep, change or replace any part of it, or none of it.
-# Every part is explained in the comments below, so pieces are easy to reuse or rewrite.
-
 """Exercise section (FR-07 / UC-07) - Daniella.
 
 WHAT THIS FILE DOES
