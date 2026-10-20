@@ -31,6 +31,9 @@ def create_app(test_config=None):
         PERMANENT_SESSION_LIFETIME=timedelta(minutes=30),
         SESSION_COOKIE_HTTPONLY=True,     # page scripts can't read the login cookie
         SESSION_COOKIE_SAMESITE="Lax",    # other websites can't send it along with their requests
+        # TEMPORARY: show the demo account's login on the login screen (for teammates,
+        # instructors and testers). Set SHOW_DEMO_LOGIN=0 to hide it; turn it off before deploying.
+        SHOW_DEMO_LOGIN=os.environ.get("SHOW_DEMO_LOGIN", "1") != "0",
     )
     # On Replit the app is shown inside replit.com's preview frame, which browsers treat as a
     # different site; the login cookie must be SameSite=None + Secure or it isn't sent there.

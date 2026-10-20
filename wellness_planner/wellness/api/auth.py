@@ -14,8 +14,9 @@ HOW IT CONNECTS
 
 ADDRESSES (all start with /api/auth)
     POST /register   POST /login   POST /logout   GET /me   PUT /profile
+    GET /demo   (temporary: the demo account's login, shown on the login screen)
 """
-from flask import Blueprint, g, jsonify, request, session
+from flask import Blueprint, abort, current_app, g, jsonify, request, session
 
 from ..auth import YEARS, check_login, create_user, start_session, validate_registration
 from ..db import get_db
@@ -56,6 +57,19 @@ def logout():
     """End the session."""
     session.clear()
     return jsonify(ok=True)
+
+
+@bp.get("/demo")
+def demo_login():
+    """TEMPORARY: the demo student's login, so teammates, instructors and testers can try the app.
+
+    The values come from seed.py (a test-only account created by `seed-demo`), so they're
+    written in one place. Answers 404 when SHOW_DEMO_LOGIN is off (see wellness/__init__.py).
+    """
+    if not current_app.config["SHOW_DEMO_LOGIN"]:
+        abort(404)
+    from ..seed import DEMO_EMAIL, DEMO_PASSWORD
+    return jsonify(email=DEMO_EMAIL, password=DEMO_PASSWORD)
 
 
 @bp.get("/me")
