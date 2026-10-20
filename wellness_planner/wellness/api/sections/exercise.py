@@ -1,4 +1,6 @@
-"""Exercise section (FR-07 / UC-07) - Daniella.
+// AI ASSISTANCE: Drafted with Claude (Anthropic) and reviewed by Daniella Mukolo.
+
+    """Exercise section (FR-07 / UC-07) - Daniella.
 
 WHAT THIS FILE DOES
     Saves and loads the activities a student logged for one day, for example
